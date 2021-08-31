@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACCOUT</title>
+    <style>
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        padding-top: 20px;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACCOUT</title>
-  <style>
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      padding-top: 20px;
-    }
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -75px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
 
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 140px;
-      background-color: #555;
-      color: #fff;
-      text-align: center;
-      border-radius: 6px;
-      padding: 5px;
-      position: absolute;
-      z-index: 1;
-      bottom: 150%;
-      left: 50%;
-      margin-left: -75px;
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
+      .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+      }
 
-    .tooltip .tooltiptext::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: #555 transparent transparent transparent;
-    }
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
 
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    /* .left {
+      /* .left {
         display: block;
         width: 200px;
         float: left;
@@ -54,205 +53,238 @@
         display: block;
         width: 500px;
       } */
-    .button {
-      background-color: #4caf50;
-      /* Green */
-      border: none;
-      color: white;
-      padding: 3px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 4px;
-      transition-duration: 0.4s;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+      .button {
+        background-color: #4caf50;
+        /* Green */
+        border: none;
+        color: white;
+        padding: 3px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 4px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 5px;
+      }
 
-    .button1 {
-      background-color: white;
-      color: black;
-      border: 2px solid #4caf50;
-    }
+      .button1 {
+        background-color: white;
+        color: black;
+        border: 2px solid #4caf50;
+      }
 
-    .button1:hover {
-      background-color: #4caf50;
-      color: white;
-    }
+      .button1:hover {
+        background-color: #4caf50;
+        color: white;
+      }
 
-    .button2 {
-      background-color: white;
-      color: black;
-      border: 2px solid #008cba;
-    }
+      .button2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #008cba;
+      }
 
-    .button2:hover {
-      background-color: #008cba;
-      color: white;
-    }
+      .button2:hover {
+        background-color: #008cba;
+        color: white;
+      }
 
-    .button3 {
-      text-align: center;
-      background-color: white;
-      color: black;
-      border: 2px solid #f44336;
-      font-size: 14px;
-      width: 100%;
-      padding-left: 10px;
-    }
+      .button3 {
+        text-align: center;
+        background-color: white;
+        color: black;
+        border: 2px solid #f44336;
+        font-size: 14px;
+        width: 100%;
+        padding-left: 10px;
+      }
 
-    .button3:hover {
-      background-color: #f44336;
-      color: white;
-    }
+      .button3:hover {
+        background-color: #f44336;
+        color: white;
+      }
 
-    .button4 {
-      background-color: white;
-      color: black;
-      border: 2px solid #e7e7e7;
-    }
+      .button4 {
+        background-color: white;
+        color: black;
+        border: 2px solid #e7e7e7;
+      }
 
-    .button4:hover {
-      background-color: #e7e7e7;
-    }
+      .button4:hover {
+        background-color: #e7e7e7;
+      }
 
-    .button5 {
-      background-color: white;
-      color: black;
-      border: 2px solid #555555;
-    }
+      .button5 {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+      }
 
-    .button5:hover {
-      background-color: #555555;
-      color: white;
-    }
+      .button5:hover {
+        background-color: #555555;
+        color: white;
+      }
 
-    #accout {
-      font-size: 17px;
-    }
+      #accout {
+        font-size: 17px;
+      }
 
-    .group-btn {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      height: 50px;
-    }
+      .group-btn {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 50px;
+      }
 
-    .firstchild {
-      width: 65%;
-    }
+      .firstchild {
+        width: 65%;
+      }
 
-    .secondchild {
-      width: 35%;
-    }
+      .secondchild {
+        width: 35%;
+      }
 
-    .group-btn button {
-      margin-left: auto;
-    }
-  </style>
-</head>
+      .group-btn button {
+        margin-left: auto;
+      }
+    </style>
+  </head>
 
-<body style="
+  <body
+    style="
       padding: 10% 0%;
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
-    ">
-  <div style="padding-bottom: 20px; font-size: 16px; color: #4caf50">
-    &rarr; &nbsp; &nbsp;<span id="notify"></span>
-  </div>
-  <div id="accout">
-    <div class="group-btn">
-      <div class="firstchild">
-        <span style="color: brown" class="left">Techcombank:</span>
-        19033968391018
-      </div>
-      <div class="secondchild">
-        <button onclick="copy('19033968391018')" onmouseout="outFunc()" class="button button3">
-          Copy TCB
-        </button>
+    "
+  >
+    <div style="padding-bottom: 20px; font-size: 16px; color: #4caf50">
+      &rarr; &nbsp; &nbsp;<span id="notify"></span>
+    </div>
+    <div id="accout">
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown" class="left">Techcombank:</span>
+          19033968391018
+        </div>
+        <div class="secondchild">
+          <button
+            onclick="copy('19033968391018')"
+            onmouseout="outFunc()"
+            class="button button3"
+          >
+            Copy TCB
+          </button>
+        </div>
       </div>
 
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown" class="left">Bidv:</span> 42710000389578
+        </div>
+        <div class="secondchild">
+          <button onclick="copy('42710000389578')" class="button button3">
+            Copy Bidv
+          </button>
+        </div>
+      </div>
+
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown" class="left">Mb Bank:</span> 1010162123888
+        </div>
+        <div class="secondchild">
+          <button
+            onclick="copy('1010162123888')"
+            onmouseout="outFunc()"
+            class="button button3"
+          >
+            Copy MB
+          </button>
+        </div>
+      </div>
+
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown" class="left">Agribank:</span> 2215205222967
+        </div>
+        <div class="secondchild">
+          <button
+            onclick="copy('2215205222967')"
+            onmouseout="outFunc()"
+            class="button button3"
+          >
+            Copy Agribank
+          </button>
+        </div>
+      </div>
+
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown">CTK: Nguyễn Minh Nhật - 0819287888</span>
+        </div>
+        <div class="secondchild">
+          <button
+            onclick="copy('0819287888')"
+            onmouseout="outFunc()"
+            class="button button3"
+          >
+            Copy SĐT
+          </button>
+        </div>
+      </div>
+      <div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown">Địa chỉ: thạch hoà </span>
+        </div>
+        <div class="secondchild">
+          <button
+            onclick="copy(
+            `Nguyễn Minh Nhật
+            SĐT: 0819287888
+            Địa chỉ: Trọ Thành Quyên, Thôn 3, Xã Thạch Hoà, Huyện Thạch Thất, Hà Nội`)"
+            onmouseout="outFunc()"
+            class="button button3"
+          >
+            Copy Địa chỉ
+          </button>
+        </div>
+      </div>
     </div>
 
-    <div class="group-btn">
-      <div class="firstchild">
-        <span style="color: brown" class="left">Bidv:</span> 42710000389578
-      </div>
-      <div class="secondchild">
-        <button onclick="copy('42710000389578')" class="button button3">
-          Copy Bidv
-        </button>
-      </div>
-    </div>
-
-    <div class="group-btn">
-      <div class="firstchild">
-        <span style="color: brown" class="left">Mb Bank:</span> 1010162123888
-      </div>
-      <div class="secondchild">
-        <button onclick="copy('1010162123888')" onmouseout="outFunc()" class="button button3">
-          Copy MB
-        </button>
-      </div>
-    </div>
-
-    <div class="group-btn">
-      <div class="firstchild">
-        <span style="color: brown" class="left">Agribank:</span> 2215205222967
-      </div>
-      <div class="secondchild">
-        <button onclick="copy('2215205222967')" onmouseout="outFunc()" class="button button3">
-          Copy Agribank
-        </button>
-      </div>
-    </div>
-
-    <div class="group-btn">
-      <div class="firstchild">
-        <span style="color: brown">CTK: Nguyễn Minh Nhật - 0819287888</span>
-      </div>
-      <div class="secondchild">
-       
-        <button onclick="copy('0819287888')" onmouseout="outFunc()" class="button button3">
-          Copy SĐT
-        </button>
-      </div>
-    </div>
-  </div>
-
- 
-    <button onclick="copy(`Tcb: 19033968391018
+    <button
+      onclick="copy(`Tcb: 19033968391018
     Bidv: 42710000389578
     Mb: 1010162123888
     Agribank: 2215205222967
-    ctk: Nguyễn Minh Nhật - 0819287888`)" onmouseout="outFunc()" class="button button1" style="margin-top: 20px;">Copy
-      Tất Cả</button>
-    
- 
+    ctk: Nguyễn Minh Nhật - 0819287888`)"
+      onmouseout="outFunc()"
+      class="button button1"
+      style="margin-top: 20px"
+    >
+      Copy Tất Cả STK
+    </button>
+  </body>
+  <script>
+    function outFunc() {
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copy to clipboard";
+    }
 
-
-</body>
-<script>
-  function outFunc() {
-    var tooltip = document.getElementById("myTooltip");
-    tooltip.innerHTML = "Copy to clipboard";
-  }
-
-  function copy(text) {
-    var input = document.createElement("textarea");
-    input.innerHTML = text;
-    document.body.appendChild(input);
-    input.select();
-    var result = document.execCommand("copy");
-    document.body.removeChild(input);
-    var tooltip = document.getElementById("notify");
-    if (text.length > 20) text = " Tất cả!";
-    tooltip.innerHTML = "ĐÃ COPY: " + text;
-    return result;
-  }
-</script>
-
+    function copy(text) {
+      var input = document.createElement("textarea");
+      input.innerHTML = text;
+      document.body.appendChild(input);
+      input.select();
+      var result = document.execCommand("copy");
+      document.body.removeChild(input);
+      var tooltip = document.getElementById("notify");
+      // if (text.length > 20) text = " Tất cả!";
+      tooltip.innerHTML = "ĐÃ COPY: " + text;
+      return result;
+    }
+  </script>
 </html>
