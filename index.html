@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tài khoản</title>
+    <title>Tài khoản Minh Nhật</title>
     <style>
       .tooltip {
         position: relative;
@@ -165,108 +165,8 @@
       &rarr; &nbsp; &nbsp;<span id="notify"></span>
     </div>
     <div id="accout">
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown" class="left">Techcombank:</span>
-          19033968391018
-        </div>
-        <div class="secondchild">
-          <button
-            onclick="copy('19033968391018')"
-            onmouseout="outFunc()"
-            class="button button3"
-          >
-            Copy TCB
-          </button>
-        </div>
-      </div>
-
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown" class="left">Bidv:</span> 42710000389578
-        </div>
-        <div class="secondchild">
-          <button onclick="copy('42710000389578')" class="button button3">
-            Copy Bidv
-          </button>
-        </div>
-      </div>
-
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown" class="left">Mb Bank:</span> 1010162123888
-        </div>
-        <div class="secondchild">
-          <button
-            onclick="copy('1010162123888')"
-            onmouseout="outFunc()"
-            class="button button3"
-          >
-            Copy MB
-          </button>
-        </div>
-      </div>
-
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown" class="left">Agribank:</span> 2215205222967
-        </div>
-        <div class="secondchild">
-          <button
-            onclick="copy('2215205222967')"
-            onmouseout="outFunc()"
-            class="button button3"
-          >
-            Copy Agribank
-          </button>
-        </div>
-      </div>
-
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown">CTK: Nguyễn Minh Nhật - 0819287888</span>
-        </div>
-        <div class="secondchild">
-          <button
-            onclick="copy('0819287888')"
-            onmouseout="outFunc()"
-            class="button button3"
-          >
-            Copy SĐT
-          </button>
-        </div>
-      </div>
-      <div class="group-btn">
-        <div class="firstchild">
-          <span style="color: brown">Địa chỉ: thạch hoà </span>
-        </div>
-        <div class="secondchild">
-          <button
-            onclick="copy(
-            `Nguyễn Minh Nhật
-            SĐT: 0819287888
-            Địa chỉ: Trọ Thành Quyên, Thôn 3, Xã Thạch Hoà, Huyện Thạch Thất, Hà Nội`)"
-            onmouseout="outFunc()"
-            class="button button3"
-          >
-            Copy Địa chỉ
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <button
-      onclick="copy(`Tcb: 19033968391018
-    Bidv: 42710000389578
-    Mb: 1010162123888
-    Agribank: 2215205222967
-    ctk: Nguyễn Minh Nhật - 0819287888`)"
-      onmouseout="outFunc()"
-      class="button button1"
-      style="margin-top: 20px"
-    >
-      Copy Tất Cả STK
-    </button>
+      
+    <div id="list"></div>
   </body>
   <script>
     function outFunc() {
@@ -282,9 +182,45 @@
       var result = document.execCommand("copy");
       document.body.removeChild(input);
       var tooltip = document.getElementById("notify");
-      // if (text.length > 20) text = " Tất cả!";
       tooltip.innerHTML = "ĐÃ COPY: " + text;
+
       return result;
     }
+    var address = "27 Ngách 98, Ngõ 43 Trung Kính, Cầu Giấy, Hà Nội"
+    var phone = "0819287888"
+    var name = "Nguyễn Minh Nhật"
+    var listData = [
+      {  stk: "42710000389578", bank: "BIDV"  },
+      {   stk: "2215205222967", bank: "Agribank" },
+      {   stk: "19033968391018", bank: "Techcombank"  },
+      {   stk: "9704229281583380", bank: "MB Viettel Pay"  },
+     
+    ];
+    function renderHtml() {
+      for (const item of listData) {
+        document.getElementById("list").innerHTML += `<div class="group-btn">
+        <div class="firstchild">
+          <span style="color: brown" class="left">${item.bank} : </span> 42710000389578
+        </div>
+        <div class="secondchild">
+          <button onclick="copy('${item.stk}')" class="button button3">Copy STK ${item.bank}</button>
+          <button
+            onclick="copy('STK:${item.stk} - Ngân hàng ${item.bank} - ${name}')"
+            class="button button3"
+          >
+            Copy Full ${item.bank}
+          </button>
+        </div>
+      </div><br/><br/> `;
+      }
+      document.getElementById("list").innerHTML += ` <div class="group-btn"><div class="firstchild">
+          <span style="color: brown" class="left">Địa chỉ : </span>  ${address}
+        </div>
+        <div class="secondchild">
+          <button onclick="copy('${name} - ${phone} - ${address}')" class="button button3">Copy Địa chỉ</button>        
+        </div>
+      </div>`;
+    }
+    window.onload = renderHtml;
   </script>
 </html>
