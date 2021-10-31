@@ -44,15 +44,7 @@
         opacity: 1;
       }
 
-      /* .left {
-        display: block;
-        width: 200px;
-        float: left;
-      }
-      .right {
-        display: block;
-        width: 500px;
-      } */
+    
       .button {
         background-color: #4caf50;
         /* Green */
@@ -135,7 +127,6 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        height: 50px;
       }
 
       .firstchild {
@@ -186,21 +177,20 @@
 
       return result;
     }
-    var address = "27 Ngách 98, Ngõ 43 Trung Kính, Cầu Giấy, Hà Nội"
+    var address =[ "27 Ngách 98, Ngõ 43 Trung Kính, Cầu Giấy, Hà Nội", "Toà nhà HH1, 90 Nguyễn Tuân, Thanh Xuân Trung, Thanh Xuân, Hà Nội"]
     var phone = "0819287888"
     var name = "Nguyễn Minh Nhật"
     var listData = [
-      {  stk: "42710000389578", bank: "BIDV"  },
+      {   stk: "0819287888", bank: "TPBank"  },
       {   stk: "2215205222967", bank: "Agribank" },
       {   stk: "19033968391018", bank: "Techcombank"  },
-      {   stk: "9704229281583380", bank: "MB Viettel Pay"  },
      
     ];
     function renderHtml() {
       for (const item of listData) {
         document.getElementById("list").innerHTML += `<div class="group-btn">
         <div class="firstchild">
-          <span style="color: brown" class="left">${item.bank} : </span> 42710000389578
+          <span style="color: brown" class="left">${item.bank} : </span> ${item.stk}
         </div>
         <div class="secondchild">
           <button onclick="copy('${item.stk}')" class="button button3">Copy STK ${item.bank}</button>
@@ -211,15 +201,18 @@
             Copy Full ${item.bank}
           </button>
         </div>
-      </div><br/><br/> `;
+      </div><br/> `;
       }
-      document.getElementById("list").innerHTML += ` <div class="group-btn"><div class="firstchild">
-          <span style="color: brown" class="left">Địa chỉ : </span>  ${address}
+      for (const item of address) {
+        document.getElementById("list").innerHTML += ` <div class="group-btn"><div class="firstchild">
+          <span style="color: brown" class="left">Địa chỉ : </span>  ${name} - ${phone} - ${item}
         </div>
         <div class="secondchild">
-          <button onclick="copy('${name} - ${phone} - ${address}')" class="button button3">Copy Địa chỉ</button>        
+          <button onclick="copy('${name} - ${phone} - ${item}')" class="button button3">Copy Địa chỉ</button>        
         </div>
-      </div>`;
+      </div><br/><br/>`;
+      }
+     
     }
     window.onload = renderHtml;
   </script>
